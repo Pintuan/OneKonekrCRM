@@ -1,0 +1,41 @@
+---
+import { useState, useEffect } from 'react';
+import MyPage from './MyPage.astro';
+import AnotherPage from './OtherPage.astro';
+
+const [page, setPage] = useState('MyPage');
+
+useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  const pageParam = params.get('page');
+  if (pageParam) {
+    setPage(pageParam);
+  }
+
+  const handlePageChange = (event: Event) => {
+    const customEvent = event as CustomEvent<{ page: string }>;
+    setPage(customEvent.detail.page);
+  };
+
+  window.addEventListener('pagechange', handlePageChange);
+
+  return () => {
+    window.removeEventListener('pagechange', handlePageChange);
+  };
+}, []);
+
+function renderContent() {
+  switch (page) {
+    case 'MyPage':
+      return <MyPage />;
+    case 'OtherPage':
+      return <AnotherPage />;
+    default:
+      return "<p>Page not found</p>";
+  }
+}
+---
+
+<div id="dynamic-content">
+  {renderContent()}
+</div>

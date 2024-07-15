@@ -1,7 +1,7 @@
 ---
 
 import Nav from "../components/Header.astro";
-import Plans from "./Plans.astro";
+import DynamicContent from "@modules/index/DynamicContent.astro";
 interface Props {
   title: string;
   description?: string;
@@ -30,7 +30,7 @@ const {
     
 	  <Nav />
       <div id = "content">
-        <Plans/>
+        <DynamicContent client:visible>
       </div>
 	  <script type="module" src="../../server/navigate.js"></script>
   </body>

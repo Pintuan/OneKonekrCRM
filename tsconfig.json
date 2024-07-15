@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@Components/*": ["src/components/*"],
-      "@modules/*": ["src/modules/*"]
+      "@modules/*": ["src/modules/*"],
+      "@toasts/*": ["notifications/toasts/*"],
     }
   }
 }
