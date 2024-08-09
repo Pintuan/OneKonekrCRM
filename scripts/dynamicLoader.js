@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  hbnfgkjsdfbghjkldbgdfgbljkdfbjklbnjkdfgjklnjkldgf
   function updateContent(html) {
     contentDiv.innerHTML = html;
     const titleElement = contentDiv.querySelector('[data-title]');
